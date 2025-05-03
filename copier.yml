@@ -12,6 +12,8 @@ python_version:
 
 _subdirectory: template
 
+_answers_file: .copier-answers-python-data-analysis.yml
+
 _tasks:
   - command: [uv, add, --requirements=requirements.txt]
   - command: [rm, -rf, requirements.txt]
