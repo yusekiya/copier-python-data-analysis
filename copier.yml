@@ -1,0 +1,17 @@
+project_name:
+  type: str
+  help: What's the project name?
+
+python_version:
+  type: str
+  help: What's the Python version in this env?
+  validator: >-
+    {% if not (python_version | regex_search('^[0-9]+(\.[0-9]+){0,2}$')) %}
+    invalid version format
+    {% endif %}
+
+_subdirectory: template
+
+_tasks:
+  - command: [uv, add, --requirements=requirements.txt]
+  - command: [rm, -rf, requirements.txt]
